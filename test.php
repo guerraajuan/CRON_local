@@ -50,11 +50,13 @@
         return number_format( substr ( $rut, 0 , -1 ) , 0, "", ".") . '-' . substr ( $rut, strlen($rut) -1 , 1 );
     }
 
+
+
     class Database{
         private $hostname = 'localhost'; 
-        private $database = 'prueba'; 
+        private $database = 'atm_local'; 
         private $username = 'root'; 
-        private $password = '123456'; 
+        private $password = 'root'; 
         private $charset = 'utf8'; 
 
         function conectar(){
@@ -77,7 +79,7 @@
     $db = new Database();
     $con = $db->conectar();
 
-    $comando =$con->query("SELECT id, solicitud, lista FROM solicitud  ORDER BY id ASC");
+    // $comando =$con->query("SELECT id, solicitud, lista FROM solicitud  ORDER BY id ASC");
 
 /////////SERVIDOR Y PUERETO////////////////////////////////////////////////////////////////////////////
 $host    = "10.1.112.150";
@@ -789,7 +791,7 @@ $port    = 16118;
                                     $mensaje_2_avance = '11'.chr(28).'211000000'.chr(28).chr(28).'F6354A8A'.chr(28).'15'.chr(28).';'.$tarjeta.'=24032068880000110000?'.chr(28).chr(28).'II      '.chr(28).$monto_giro.chr(28).'0>1?875<2?7>47::'.chr(28).$cuenta.chr(28).$co_cuenta.chr(28).'1'.$rut_full.' '.$monto_deposito.chr(28).chr(28).'5CAM000C5A08'.$tarjeta.'5F340100820239008407A00000000410109C01019F1A0201529F10120110A00001220000000000000000000000FF9F26080F31807BE2B5567C9F2701809F33036040209F34034203009F3602007F950580000480009F02060000000000009F03060000000000005F2A0201529A032302109F370470F1E6B59F3501149F2103095211'.chr(28).chr(28);
         
         
-        
+                                    
                                 
                                     $largo_msj_2_avance = strlen($mensaje_2_avance)+7;
             
